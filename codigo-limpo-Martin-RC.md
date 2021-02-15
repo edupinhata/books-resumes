@@ -187,110 +187,185 @@ Este capítulo é uma lista de com dicas de pontos de atenção no código, para
 ### Comentários
 
 - **C1: Informações inapropriadas:**
+
 Metadados, como autores, data da última atualização, número SRP e assim por diante, não deve ficar nos comentários.
 Este deve conter apeans dados técnicos sobre o código e projeto.
+
 - **C2: Comentário obsoleto:**
+
 Comentário que ficou velho, irrelevante e incorreto é obsoleto. Atualizá-lo ou se livrar dele.
+
 - **C3: Comentários redundantes:**
 Remover
+
 - **C4: Comentário mal escrito:**
+
 Um comentário que valha deve ser bem escrito. Não erre. Não diga o obvio. Seja breve.
+
 - **C5: Código como comentário:**
+
 Exclua-o.
 
 
 ### Ambiente
 
 - **A1: Construir requer mais de uma etapa:**
+
 Construir um projeto deve ser uma operação simples e única.
+
 - **A2: Testes requerem mais de uma etapa:**
+
 Você deve ser capaz de rodar todos os testes de unidade com apenas um comando.
 
 ### Funções
 
 - **F1: Parâmetros em excesso:**
+
 Funções devem ter um número pequeno de parâmetros.
+
 - **F2: Parâmetros de saída**
+
 Leitores esperam que parâmetros sejam de entrada, e não de saída.
+
 - **F3: Parâmetros lógicos**
+
 Parâmetros booleanos dizem que a função faz mais de uma coisa. Eles são confusos e devem ser eliminados.
+
 - **F4: Função morta**
+
 Descartar métodos que nunca são chamados.
 
 ### Geral
 
 - **G1: Múltiplas linguagens em um arquivo fonte**
+
 Minimizar tanto a quantidade como o uso de linguagens extras em nossos arquivos-fonte.
+
 - **G2: Comportamento óbvio n˜åo é implementado**
+
 Quando um comportamento nnão é implementado, os leitores e usuários do código não podem mais depender
 de suas intuições sobre o que indica o nome das funções.
+
 - **G3: Comportamento incorreto nos limites**
+
 Não dependa de sua intuição. Cuide de cada condição de limite e crie testes para cada.
+
 - **G4: Seguranças anuladas**
+
 Desabilitar os testes de falhas e dizer a si mesmo que os aplicará depois é tão ruim quanto fingir
 que seus cartões de crédito sejam dinheiro gratuito.
 Minimizar tanto a quantidade como o uso de linguagens extras em nossos arquivos-fonte.
+
 - **G2: Comportamento óbvio não é implementado**
+
 Quando um comportamento nnão é implementado, os leitores e usuários do código não podem mais depender
 de suas intuições sobre o que indica o nome das funções.
+
 - **G3: Comportamento incorreto nos limites**
+
 Não dependa de sua intuição. Cuide de cada condição de limite e crie testes para cada.
+
 - **G4: Seguranças anuladas**
+
 Desabilitar os testes de falhas e dizer a si mesmo que os aplicará depois é tão ruim quanto fingir
 que seus cartões de crédito sejam dinheiro gratuito.
+
 - **G5: Duplicação**
+
 DRY (Don't repeat yourself). Sempre que você vir duplicação de código, significa que perdeu uma chance de 
 abstração. Estruturas aninhadas de switch/case e if/else: analizar uma substituição por polimorfismo.
 Algoritmos parecidos, mas não possuem as mesmas linhas de código: usar TEMPLATE METHOD ou STRATEGY.
+
 - **G6: Códigos no nível errado de abstração**
+
 Queremos que todos os conceitos de níveis mais altos fiquem na classe base e que todos os níveis mais 
 baixos fiquem em suas derivadas.
+
 - **G7: As classes base dependem de suas derivadas**
+
 De modo geral, as classes base não deveriam enxergar nada em suas derivadas.
+
 - **G8: Informações excessivas**
+
 Módulos bem definidos possuem interfaces pequenas que lhe permite fazer muito com pouco. Tentar limitar o que 
 é exposto nas interfaces de suas classes e módulos.
+
 - **G9: Código morto**
+
 Aquele que não é executado. Após um tempo começa a "cheirar". Exclua-o do sistema.
+
 - **G10: Separação vertical**
+
 Devem-se declarar as variáveis e funções próximas de onde são usadas.
+
 - **G11: Inconsistência**
+
 Se fizer algo de uma determinada maneira, faça da mesma forma todas as oturas coisas similares.
+
 - **G12: Entulho**
+
 Construtores sem implementação, variáveis não usadas, funções não chamadas são entulhos. Limpe-os.
+
 - **G13: Acoplamento artificial**
+
 Ocorre quando se colocar uma variável, uma constante ou uma função em um local temporariamente conveniente, porém inapropriado. 
 Tome seu tempo para descobrir onde devem ser declaradas as funções, as constantes e as variáveis. 
+
 - **G14: Feature Envy**
+
 Os métodos de uma classe devem ficar interessados nas variáveis e funções da classe a qual eles pertencem, e não 
 nas de outras classes.
+
 - **G15: Parâmetros seletores**
+
 De modo geral, é melhor ter muitas funções do que passar um código por parâmetro para selecionar o comportamento.
+
 - **G16: Propósito obscuro**
+
 Não usar expressões contínuas, notação húngara e números mágicos, pois obscurecem a intenção do autor.
+
 - **G17: Responsabilidade mal posicionada**
+
 Onde colocar o código? Utilizar o princípio da surpresa mínima: colocar o código onde um leitor geralmente espera.
+
 - **G18: Modo estático inadequado**
+
 Em geral, deve-se dar preferência a métodos não estáticos. Na dúvida, torne a função não estática.
+
 - **G19: Use variáveis descritivas**
+
 Uma das formas mais poderosas de tornar um programa legível é separar os cálculos em valores intermediários armazenados 
 em variáveis com nomes descritivos.
+
 - **G20: Nomes de funções devem dizer o que elas fazem**
+
 Se tiver de olhar a implementação da função para saber o que ela faz, então é melhor selecionar um noome melhor.
+
 - **G21: Entenda o algoritmo**
+
 Escreva um algoritmo sabendo o que ele faz e não remendando vários pedaços buscando alcançar um objetivo.
+
 - **G22: torne dependências lógicas em físicas**
+
 O módulo dependente não deve fazer suposições sobre o módulo no qual ele depende.
+
 - **G23: prefira polimorfismo a if/else ou switch/case**
+
 Regra do "UM SWITCH"
+
 - **G24: Siga as convenções padrões**
 - **G25: Substitua os números mágicos por constantes com nomes**
 - **G26: Seja preciso**
+
 Quando tomar uma decisão em seu código, a faça precisamente. Saiba por que tomou a decisão e como lidará com 
 quaisquer excessões.
+
 - **G27: Estrutura acima de convenção**
+
 Decisões no projeto devem-se basear em estruturas e não em convenções.
+
 - **G28: Encapsule as condicionais**
+
 Extraia funções que expliquem o propósito da estrutura condicional.
 '''vim
 if (shouldBeDeleted(timer))
@@ -299,9 +374,11 @@ if (shouldBeDeleted(timer))
 '''vim
 if (timer.hasExpired() && !timer.isRecurrent())
 '''
+
 - **G29: Evite condicionais negativas**
 - **G30: As funções devem fazer uma coisa só**
 - **G31: Acoplamentos temporais ocultos**
+
 '''vim
 public void dive(String reason) {
     saturateGradient();
@@ -318,22 +395,30 @@ public void dive(String reason) {
     diveForMoog(splines, reason);
 }
 '''
+
 - **G32: Não seja arbitrário**
+
 Tenha um motivo pelo qual você estruture seu código e certifique-se de que tal motivo seja informado na estrutura.
+
 - **G33: encapsule as condições de limites**
+
 '''vim
 nextLevel = level +1;
 '''
+
 - **G34 Funções devem descer apenas um nível de abstração**
 - **G35: Mantenha os dados configuráveis em níveis altos**
 - **G36: Evite a navegação transitiva**
+
 Lei de Demeter (criar um "Código Tímido": garantir que os módulos saibam sobre seus colaboradores 
 imediatos apenas e não sobre o mapa de navegação de todo o sistema.
 
 ### Nomes
 
 - **N1: Escolha nomes descritivos**
+
 Nomes em software são 90% responsáveis pela legibilidade do código.
+
 - **N2: Escolha nomes no nível apropriado de abstração**
 - **N3: Use uma nomenclatura padrão onde for possível**
 - **N4: Nomes não ambíguos**
@@ -344,8 +429,10 @@ Nomes em software são 90% responsáveis pela legibilidade do código.
 ### Testes
 
 - **T1: Testes insuficientes**
+
 Uma coleção de testes deve testar tudo o que pode vir falhar. Testes são insuficientes enquanto houver condições 
 que não tenham sido exploradas.
+
 - **T2: Use uma ferramenta de cobertura!**
 - **T3: Não pule testes triviais**
 - **T4: Um teste ignorado é uma questão sobre uma ambiguidade**
